@@ -1,6 +1,6 @@
 package com.example.dirc.integration;
 
-import com.pot.irc.entity.MessageDto;
+import com.example.dirc.model.MessageDto;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
