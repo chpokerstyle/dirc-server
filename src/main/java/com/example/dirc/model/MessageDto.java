@@ -1,7 +1,5 @@
 package com.example.dirc.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,12 +15,25 @@ import java.util.UUID;
 @NoArgsConstructor
 public class MessageDto {
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotEmpty
     private UUID uuid;
     @NotEmpty
-    private String senderMsg;
+    private String producer;
     @NotEmpty
-    private String recipientMsg;
+    private String consumer;
     @NotEmpty
     private String payload;
+
+    public String hostOfSender() {
+        return getHost(producer);
+    }
+
+    public String hostOfRecipientMsg() {
+        return getHost(consumer);
+    }
+
+    private String getHost(String address) {
+        return address.substring(address.indexOf("@") + 1);
+    }
+
 }

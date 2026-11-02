@@ -6,34 +6,53 @@ import com.example.dirc.model.MessageResponse;
 import com.example.dirc.service.MessagesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/msg")
-@RequiredArgsConstructor
+import java.util.List;
+
+// TODO IRC-20 Перевести на соккет
+@RestController
+@RequestMapping("/api/msg") @RequiredArgsConstructor
 public class MessagesController {
     private final MessagesService service;
 
-    @PostMapping
-    public ResponseEntity<MessageResponse> send(@RequestBody MessageRequest request) {
+    /**
+     * Отправка сообщения
+     * @param request
+     * @return
+     */
+    @PostMapping("/send")
+    public ResponseEntity<MessageRequest> send(@RequestBody MessageRequest request) {
         return ResponseEntity.ok(service.send(request));
     }
 
+    /**
+     * Получение сообщения
+     * @param request
+     * @return
+     */
     @PostMapping
     public ResponseEntity<MessageResponse> receiving(@RequestBody MessageRequest request) {
         return ResponseEntity.ok(service.receiving(request));
     }
 
+    /**
+     * Вывод сообщения из диалога с пользователем
+     * @param user
+     * @return
+     */
     @GetMapping
+    public List<MessageDto> getMessagesWithUser(@RequestParam String user) {
+        return service.getMessagesWithUser(user);
+    }
+
+    @GetMapping("/test")
     public void test() {
         service.send(new MessageRequest(
                 MessageDto.builder()
-                        .recipientMsg("получатель@irc.com")
-                        .senderMsg("отправитель@irc.com")
+                        .consumer("получатель@irc.com")
+                        .producer("отправитель@irc.com")
                         .payload("Ты пидор!")
-                        .build(),
-                null));
+                        .build()));
     }
 }
