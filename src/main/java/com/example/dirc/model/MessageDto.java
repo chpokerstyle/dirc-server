@@ -16,7 +16,7 @@ import java.util.UUID;
 public class MessageDto {
 
     @NotEmpty
-    private UUID uuid;
+    private UUID id;
     @NotEmpty
     private String producer;
     @NotEmpty

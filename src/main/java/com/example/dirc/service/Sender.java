@@ -10,7 +10,9 @@ import org.springframework.web.client.RestClient;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 
-//todo реализовать http-client
+/**
+ * Sender отправляет сообщения на другие сервера (в децентрализованном стиле)
+ */
 @Component
 @RequiredArgsConstructor
 public class Sender {

@@ -22,7 +22,6 @@ public class MessagesService {
     }
 
     public MessageResponse receiving(MessageRequest request) {
-        request.getMessage();
         messagesRepo.save(request.getMessage());
         return null;
     }
