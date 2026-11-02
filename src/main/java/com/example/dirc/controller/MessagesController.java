@@ -1,6 +1,6 @@
 package com.example.dirc.controller;
 
-import com.example.dirc.model.MessageDto;
+import com.example.dirc.model.Message;
 import com.example.dirc.model.MessageRequest;
 import com.example.dirc.model.MessageResponse;
 import com.example.dirc.service.MessagesService;
@@ -42,14 +42,14 @@ public class MessagesController {
      * @return
      */
     @GetMapping
-    public List<MessageDto> getMessagesWithUser(@RequestParam String user) {
+    public List<Message> getMessagesWithUser(@RequestParam String user) {
         return service.getMessagesWithUser(user);
     }
 
     @GetMapping("/test")
     public void test() {
         service.send(new MessageRequest(
-                MessageDto.builder()
+                Message.builder()
                         .consumer("получатель@irc.com")
                         .producer("отправитель@irc.com")
                         .payload("Ты пидор!")
