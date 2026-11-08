@@ -1,6 +1,7 @@
 package com.example.dirc.service;
 
-import com.example.dirc.model.MessageDto;
+import com.example.dirc.integration.Sender;
+import com.example.dirc.model.Message;
 import com.example.dirc.model.MessageRequest;
 import com.example.dirc.model.MessageResponse;
 import com.example.dirc.repo.MessagesRepo;
@@ -26,7 +27,7 @@ public class MessagesService {
         return null;
     }
 
-    public List<MessageDto> getMessagesWithUser(String user) {
+    public List<Message> getMessagesWithUser(String user) {
         var me = "dima@volok.ru";
         return messagesRepo.getMessagesWithUser(user, me);
     }

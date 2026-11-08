@@ -13,7 +13,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MessageDto {
+public class Message {
 
     @NotEmpty
     private UUID id;

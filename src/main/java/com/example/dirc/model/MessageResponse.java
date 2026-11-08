@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class MessageResponse {
-    private MessageDto message;
+    private Message message;
     private Error error;
     private boolean success;
 }

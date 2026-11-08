@@ -1,19 +1,18 @@
 package com.example.dirc.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 public class MessageRequest {
-    private final MessageDto message;
+    private final Message message;
     private final Error error;
 
-    public MessageRequest(MessageDto message) {
+    public MessageRequest(Message message) {
         this.message = message;
         this.error = null;
     }
 
-    public MessageRequest(MessageDto message, Error error) {
+    public MessageRequest(Message message, Error error) {
         this.message = message;
         this.error = error;
     }
