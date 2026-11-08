@@ -1,5 +1,6 @@
 package com.example.dirc.service;
 
+import com.example.dirc.integration.Sender;
 import com.example.dirc.model.Message;
 import com.example.dirc.model.MessageRequest;
 import com.example.dirc.model.MessageResponse;

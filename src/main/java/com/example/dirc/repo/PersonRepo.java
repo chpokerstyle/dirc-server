@@ -17,7 +17,7 @@ public interface PersonRepo extends Repo {
             select *
             from person
             where nick_name = :nickName""")
-    Person getByNickName(@BindBean String nickName);
+    List<Person> getByNickName(@BindBean String nickName);
 
     @SqlQuery("""
             select *

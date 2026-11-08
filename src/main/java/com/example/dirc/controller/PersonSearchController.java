@@ -5,6 +5,7 @@ import com.example.dirc.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,12 +22,13 @@ public class PersonSearchController {
     }
 
     @GetMapping("/by-nickname")
-    public List<Person> getByNickName() {
-        return service.getAll();
+    public List<Person> getByNickName(@RequestParam String nickname) {
+        return service.getByNickName(nickname);
     }
 
     @GetMapping("/by-depa")
-    public List<Person> getByDepa() {
-        return service.getAll();
+    public Person getByDepa(@RequestParam String depa,
+                            @RequestParam(required = false) Boolean isOnlyMySystem) {
+        return service.getByDepa(depa, isOnlyMySystem);
     }
 }

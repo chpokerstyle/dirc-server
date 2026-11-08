@@ -1,14 +1,10 @@
-package com.example.dirc.service;
+package com.example.dirc.integration;
 
 import com.example.dirc.model.MessageRequest;
-import com.example.dirc.model.MessageResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestClient;
-
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
 
 /**
  * Sender отправляет сообщения на другие сервера (в децентрализованном стиле)

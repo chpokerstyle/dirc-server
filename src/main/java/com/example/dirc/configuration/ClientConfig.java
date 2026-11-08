@@ -1,5 +1,6 @@
-package com.example.dirc.integration;
+package com.example.dirc.configuration;
 
+import com.example.dirc.integration.SenderService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
